@@ -49,7 +49,7 @@ interface GetPortOptions {
 
   random?: boolean;
   port?: number;
-  portRange?: [from: number, to: number];
+  portRange?: [fromInclusive: number, toExclusive: number];
   ports?: number[];
   host?: string;
 
@@ -78,9 +78,14 @@ Extended ports to check.
 
 Extended port range to check.
 
+The range's start is inclusive, and the end is exclusive, i.e. it is `[start, end)` in the mathematical notion.
+
 ### `alternativePortRange`
 
-Alternative port range to check as fallback when non of the ports are available. Default is `[3000, 3100]` (only when `port` in unspecified.)
+Alternative port range to check as fallback when none of the ports are available.
+
+The range's start is inclusive, and the end is exclusive, i.e. it is `[start, end)` in the mathematical notion.
+Default values for start and end of the range are `3000` and `3100` respectively (only when `port` is unspecified).
 
 ### `host`
 
