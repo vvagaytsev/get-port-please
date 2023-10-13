@@ -5,6 +5,7 @@ import type { PortNumber, HostAddress } from "./types";
 
 export class GetPortError extends Error {
   name = "GetPortError";
+
   constructor(
     public message: string,
     opts?: any,
@@ -20,11 +21,17 @@ export function _log(verbose: boolean, message: string) {
 }
 
 export function _generateRange(from: number, to: number): number[] {
-  if (to < from) {
+  if (from === to) {
     return [];
   }
+  let effectiveFrom = from;
+  let effectiveTo = to;
+  if (to < from) {
+    effectiveFrom = to;
+    effectiveTo = from;
+  }
   const r = [];
-  for (let index = from; index < to; index++) {
+  for (let index = effectiveFrom; index < effectiveTo; index++) {
     r.push(index);
   }
   return r;

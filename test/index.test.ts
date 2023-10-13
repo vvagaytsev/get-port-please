@@ -145,7 +145,7 @@ describe("internal tools", () => {
       const to = 1;
       const range = _generateRange(from, to);
 
-      expect(range).to.eql([]);
+      expect(range).to.eql([1, 2, 3, 4, 5]);
     });
   });
 });

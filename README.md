@@ -79,12 +79,15 @@ Extended ports to check.
 Extended port range to check.
 
 The range's start is inclusive, and the end is exclusive, i.e. it is `[start, end)` in the mathematical notion.
+Reverse ranges are supported. If `start > end`, then the effective range will be `[end, start)`.
 
 ### `alternativePortRange`
 
 Alternative port range to check as fallback when none of the ports are available.
 
 The range's start is inclusive, and the end is exclusive, i.e. it is `[start, end)` in the mathematical notion.
+Reverse ranges are supported. If `start > end`, then the effective range will be `[end, start)`.
+
 Default values for start and end of the range are `3000` and `3100` respectively (only when `port` is unspecified).
 
 ### `host`
